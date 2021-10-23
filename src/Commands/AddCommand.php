@@ -6,16 +6,6 @@ use Illuminate\Console\Command;
 
 class AddCommand extends Command
 {
-    /**
-     * @var string
-     */
-    protected $signature;
-
-    /**
-     * @var string
-     */
-    protected $description;
-
     public function __construct()
     {
         $commandVerb = $this->getCommandVerb();
@@ -26,6 +16,8 @@ class AddCommand extends Command
             $this->getCommandPassiveVerb()
         );
         $this->description = sprintf('%s all given Numbers', ucfirst($commandVerb));
+
+        parent::__construct();
     }
 
     protected function getCommandVerb(): string

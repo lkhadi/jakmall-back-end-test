@@ -8,7 +8,12 @@ trait TraitCommand
     {
     	$numbers = $this->getInput();
         $description = $this->generateCalculationDescription($numbers, $operator);
-        $result = $this->calculateAll($numbers);
+
+        if ($operator === '^') {
+        	$result = $this->calculateAllPow($numbers);
+        } else {
+        	$result = $this->calculateAll($numbers);
+        }
 
         $this->comment(sprintf('%s = %s', $description, $result));
     }
